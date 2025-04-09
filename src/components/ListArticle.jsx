@@ -13,4 +13,14 @@ function ListArticle() {
         "Fitness a Casa: Esercizi Efficaci Senza Attrezzi"
     ];
 
+    return (
+        <ul>
+            {Article.map((element, index) => (
+                <li key={index}>{element}</li>
+            ))}
+        </ul>
+    )
+
 }
+
+export default ListArticle;
