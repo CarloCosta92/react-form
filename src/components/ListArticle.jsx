@@ -15,6 +15,8 @@ function ListArticle() {
         "Fitness a Casa: Esercizi Efficaci Senza Attrezzi"
     ];
 
+    //funzione per aggiungere un nuovo titolo
+
     const [articles, newArticles] = useState(Article)
     const [newTitle, setNewTitle] = useState("");
 
@@ -24,9 +26,16 @@ function ListArticle() {
         setNewTitle("");
     }
 
-    console.log(newTitle)
+    // console.log(newTitle)
 
     console.log(articles)
+
+    // funzione per cancellare un titolo
+
+    const removeTitle = indexArticleToDelete => {
+        const updatedTitle = articles.filter((element, index) => index !== indexArticleToDelete); //nuovo array modificato
+        newArticles(updatedTitle);
+    }
 
     return (
         <div>
@@ -41,7 +50,10 @@ function ListArticle() {
             </form>
             <ul>
                 {articles.map((element, index) => (
-                    <li key={index}>{element}</li>
+                    <li key={index}>
+                        {element}
+                        <button onClick={() => removeTitle(index)}>Cancella questo titolo</button>
+                    </li>
                 ))}
             </ul>
         </div>
