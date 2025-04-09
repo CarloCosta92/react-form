@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    padding: 50px;
+}
+
+.list-title {
+    list-style-type: upper-roman;
+    margin-top: 10px;
+}
+
+button {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

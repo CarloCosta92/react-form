@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Article from "../data/article";
-import FormArticle from "./FormArticle"
+import FormArticle from "./FormArticle";
 
 function ListArticle() {
 
@@ -27,11 +27,11 @@ function ListArticle() {
     }
 
     return (
-        <div>
+        <div className="main-container">
             <FormArticle newTitle={newTitle} setNewTitle={setNewTitle} addNewTitle={addNewTitle} />
             <ul>
                 {articles.map((element, index) => (
-                    <li key={index}>
+                    <li key={index} className="list-title">
                         {element}
                         <button onClick={() => removeTitle(index)}>Cancella questo titolo</button>
                     </li>
