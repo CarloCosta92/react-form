@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function ListArticle() {
 
     const Article = [
@@ -13,13 +15,39 @@ function ListArticle() {
         "Fitness a Casa: Esercizi Efficaci Senza Attrezzi"
     ];
 
+    const [articles, newArticles] = useState(Article)
+    const [newTitle, setNewTitle] = useState("");
+
+    const addNewTitle = event => {
+        event.preventDefault();
+        newArticles([...articles, newTitle]);
+        setNewTitle("");
+    }
+
+    console.log(newTitle)
+
+    console.log(articles)
+
     return (
-        <ul>
-            {Article.map((element, index) => (
-                <li key={index}>{element}</li>
-            ))}
-        </ul>
+        <div>
+            <form onSubmit={addNewTitle}>
+                <input
+                    type="text"
+                    value={newTitle}
+                    onChange={event => setNewTitle(event.target.value)}
+                />
+                <button type="submit">Aggiungi Articolo</button>
+
+            </form>
+            <ul>
+                {articles.map((element, index) => (
+                    <li key={index}>{element}</li>
+                ))}
+            </ul>
+        </div>
     )
+
+
 
 }
 
